@@ -11,4 +11,10 @@ public class AsterisksGenerator {
         return asteriksLine.toString();
 
     }
+    public String drawRightTriangle(int n){
+        StringBuffer asteriksTriangle = new StringBuffer();
+        for(int i = 1; i <= n; i++)
+            asteriksTriangle.append(printHorizontalLine(i) + "\n");
+        return asteriksTriangle.toString();
+    }
 }

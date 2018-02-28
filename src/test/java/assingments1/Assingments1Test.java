@@ -17,4 +17,11 @@ public class Assingments1Test {
         String horizontalLine = asterisks.printHorizontalLine(3);
         Assert.assertEquals("***", horizontalLine);
     }
+
+    @Test
+    public void drawRightTriangleTest(){
+        AsterisksGenerator asterisks = new AsterisksGenerator();
+        String triangle = asterisks.drawRightTriangle(3);
+        Assert.assertEquals("*\n**\n***\n", triangle);
+    }
 }
