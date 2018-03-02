@@ -1,6 +1,9 @@
 package assingments;
 
 import java.io.StringWriter;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class AsterisksGenerator {
     public String printOneAsterisk(){
@@ -32,6 +35,7 @@ public class AsterisksGenerator {
         for(int i = 1; i <= n; i++){
             isocelesTriangle.append(drawHorizontalLineWithSpaces(n - i, (2*i - 1)) + "\n");
         }
+        Arrays.asList((isocelesTriangle.toString().split("\n")));
         return isocelesTriangle.toString();
     }
 
@@ -42,16 +46,19 @@ public class AsterisksGenerator {
         return diamond.toString();
     }
     public String drawDiamondWithName(int n){
+        n--;
         StringBuffer diamond  =  new StringBuffer();
-        diamond.append(drawIsocelesTriangle(n - 1));
-        diamond.append("Gabriel\n");
+        diamond.append(drawIsocelesTriangle(n));
+        diamond.append("gabriel\n");
+
         diamond.append(drawInvertedTriangle(n));
+
         return diamond.toString();
     }
     //private functions
     private String drawInvertedTriangle(int n){
         StringBuffer invertedTriangle  =  new StringBuffer();
-        for(int i = n-1; i >= 1; i--){
+        for(int i = n; i >= 1; i--){
             invertedTriangle.append(drawHorizontalLineWithSpaces(n - i, (2*i - 1)) + "\n");
         }
         return invertedTriangle.toString();
