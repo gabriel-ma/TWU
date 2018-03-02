@@ -29,14 +29,39 @@ public class AsterisksGenerator {
 
     public String drawIsocelesTriangle(int n){
         StringBuffer  isocelesTriangle = new StringBuffer();
-        isocelesTriangle.append(padLeft(" ", n) + printOneAsterisk() + "\n");
-        for(int i = 1, j= 1; j < n; i = i+2, j++)
-            isocelesTriangle.append(padLeft(" ", n - j) + printHorizontalLine(i + 2)+ "\n");
+        for(int i = 1; i <= n; i++){
+            isocelesTriangle.append(drawHorizontalLineWithSpaces(n - i, (2*i - 1)) + "\n");
+        }
         return isocelesTriangle.toString();
     }
 
+    public String drawDiamond(int n){
+        StringBuffer diamond  =  new StringBuffer();
+        diamond.append(drawIsocelesTriangle(n));
+        diamond.append(drawInvertedTriangle(n));
+        return diamond.toString();
+    }
+    public String drawDiamondWithName(int n){
+        StringBuffer diamond  =  new StringBuffer();
+        diamond.append(drawIsocelesTriangle(n - 1));
+        diamond.append("Gabriel\n");
+        diamond.append(drawInvertedTriangle(n));
+        return diamond.toString();
+    }
+    //private functions
+    private String drawInvertedTriangle(int n){
+        StringBuffer invertedTriangle  =  new StringBuffer();
+        for(int i = n-1; i >= 1; i--){
+            invertedTriangle.append(drawHorizontalLineWithSpaces(n - i, (2*i - 1)) + "\n");
+        }
+        return invertedTriangle.toString();
+    }
+    private String drawHorizontalLineWithSpaces(int line, int lineSize){
+        return padLeft(" ", line) + printHorizontalLine(lineSize);
 
-    public static String padLeft(String s, int n) {
+    }
+
+    private  String padLeft(String s, int n) {
         if(n == 0) return "";
         else return String.format("%1$" + n + "s", s);
     }

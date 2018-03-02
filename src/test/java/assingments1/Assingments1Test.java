@@ -35,10 +35,20 @@ public class Assingments1Test {
     }
     @Test
     public void drawIsoscelesTriangleTest(){
-        String isocelesTriangle = asterisks.drawIsocelesTriangle(3);
+        String isocelesTriangle = asterisks.drawIsocelesTriangle(4);
         Assert.assertEquals("   *\n" +
                 "  ***\n" +
                 " *****\n", isocelesTriangle);
 
+    }
+    @Test
+    public void drawDiamondTest(){
+        String diamond = asterisks.drawDiamond(4);
+        Assert.assertEquals("", diamond);
+    }
+    @Test
+    public void drawDiamondWithNameTest(){
+        String diamond = asterisks.drawDiamondWithName(4);
+        Assert.assertEquals("", diamond);
     }
 }
