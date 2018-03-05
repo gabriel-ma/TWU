@@ -5,6 +5,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import assingments.AsterisksGenerator;
+
+import java.util.Arrays;
+
 public class Assingments1Test {
     AsterisksGenerator asterisks;
     @Before
@@ -48,7 +51,31 @@ public class Assingments1Test {
     }
     @Test
     public void drawDiamondWithNameTest(){
-        String diamond = asterisks.drawDiamondWithName(4);
+        String diamond = asterisks.drawDiamondWithName(3);
         Assert.assertEquals("", diamond);
+    }
+
+    @Test
+    public void fizzBuzzTest(){
+        String fizzBuzz = asterisks.fizzBuzzGame();
+        Assert.assertEquals("1\n" +
+                "2\n" +
+                "Fizz\n" +
+                "4\n" +
+                "Buzz\n" +
+                "Fizz\n" +
+                "7\n" +
+                "8\n" +
+                "Fizz\n" +
+                "Buzz\n" +
+                "11\n" +
+                "Fizz\n" +
+                "13\n" +
+                "14\n" +
+                "FizzBuzz", fizzBuzz);
+    }
+    @Test
+    public void primeFactorsTest(){
+        Assert.assertEquals(Arrays.asList(2,3,5), asterisks.getPrimeFactors(30));
     }
 }
