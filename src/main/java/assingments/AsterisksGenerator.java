@@ -2,8 +2,11 @@ package assingments;
 
 import java.io.StringWriter;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class AsterisksGenerator {
     public String printOneAsterisk(){
@@ -35,14 +38,20 @@ public class AsterisksGenerator {
         for(int i = 1; i <= n; i++){
             isocelesTriangle.append(drawHorizontalLineWithSpaces(n - i, (2*i - 1)) + "\n");
         }
-        Arrays.asList((isocelesTriangle.toString().split("\n")));
+
         return isocelesTriangle.toString();
     }
 
     public String drawDiamond(int n){
         StringBuffer diamond  =  new StringBuffer();
+        List<String> invertedDiamond  =  Arrays.asList(drawInvertedTriangle(n).split("\n"));
+        ArrayList<String> teste = new ArrayList<String>();
+        teste.addAll(invertedDiamond);
         diamond.append(drawIsocelesTriangle(n));
-        diamond.append(drawInvertedTriangle(n));
+
+        teste.remove(0);
+
+        diamond.append(String.join("\n", teste));
         return diamond.toString();
     }
     public String drawDiamondWithName(int n){
